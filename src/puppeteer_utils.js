@@ -175,6 +175,13 @@ const crawl = async (opt) => {
    * @returns {void}
    */
   const addToQueue = (newUrl) => {
+    console.log(`<url>
+        <loc>${newUrl.replace('http://localhost:45678', 'https://domain.com')}</loc>
+        <lastmod>2020-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.1</priority>
+      </url>`);
+    
     const { hostname, search, hash, port } = url.parse(newUrl);
     newUrl = newUrl.replace(`${search || ""}${hash || ""}`, "");
 
